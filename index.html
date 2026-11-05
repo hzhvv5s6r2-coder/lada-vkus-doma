@@ -204,7 +204,7 @@ const IMG={
 "Карельские калитки":"photo-1555507036-ab1f4038808a",
 "Картошка с грибами":"photo-1518977676601-b53f82aba655"
 };
-const photo=id=>`https://images.unsplash.com/${IMG[id]||IMG.borshch}?auto=format&fit=crop&w=900&q=82`;
+const photo=id=>`https://images.unsplash.com/${IMG[id]||IMG["Борщ"]}?auto=format&fit=crop&w=900&q=82`;
 const categories=[...new Set(R.map(x=>x.category))];
 let saved=read("lada_saved",[]), shopping=read("lada_shopping",[]), notes=read("lada_notes",{}), currentRecipe=null,cookIndex=0,timerSeconds=300,timerInterval=null,timerRunning=false;
 function read(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}function persist(){localStorage.setItem("lada_saved",JSON.stringify(saved));localStorage.setItem("lada_shopping",JSON.stringify(shopping));localStorage.setItem("lada_notes",JSON.stringify(notes))}
