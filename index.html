@@ -202,7 +202,7 @@ function submitLocalEntry(e){
   const password=document.getElementById("authPassword").value;
   const error=document.getElementById("authError");
   if(name.length<2){error.textContent="Введите имя не короче двух символов.";return}
-  if(phone.replace(/\\D/g,"").length<7){error.textContent="Проверьте номер телефона.";return}
+  if(phone.replace(/[^0-9]/g,"").length<7){error.textContent="Проверьте номер телефона.";return}
   if(password.length<4){error.textContent="Пароль должен содержать хотя бы 4 символа.";return}
   try{localStorage.setItem("babushkin-lunch-profile",JSON.stringify({name,phone,enteredAt:new Date().toISOString()}))}catch(err){}
   document.getElementById("authGate").hidden=true;
